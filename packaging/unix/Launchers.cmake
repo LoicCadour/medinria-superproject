@@ -35,7 +35,7 @@ endif()
 
 set(MEDINRIA_PLUGINS_DIRS "${binary_dir}/plugins:${DEV_PLUGINS_DIRS}")
 
-configure_file(${CURRENT_SRC_DIR}/medInria.sh.in medInria.sh @ONLY)
+configure_file(${CURRENT_SRC_DIR}/MUSIC.sh.in MUSIC.sh @ONLY)
 
 #   For end users.
 
@@ -50,6 +50,6 @@ endif()
 
 set(MEDINRIA_PLUGINS_DIRS "\${MEDINRIA_DIR}/plugins:\${MEDINRIA_USER_PLUGINS_DIRS}")
 
-configure_file(${CURRENT_SRC_DIR}/medInria.sh.in ${CURRENT_BIN_DIR}/medInria_launcher.sh @ONLY)
+configure_file(${CURRENT_SRC_DIR}/MUSIC.sh.in ${CURRENT_BIN_DIR}/medInria_launcher.sh @ONLY)
 install(PROGRAMS ${CURRENT_BIN_DIR}/medInria_launcher.sh
         DESTINATION bin)

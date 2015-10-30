@@ -61,7 +61,7 @@ EP_SetDirectories(${ep}
 ## Define repository where get the sources
 ## #############################################################################
 
-set(url ${GITHUB_PREFIX}medInria/medInria-public.git)
+set(url ${GITHUB_PREFIX}LoicCadour/medInria-public.git)
 if (NOT DEFINED ${ep}_SOURCE_DIR)
   set(location GIT_REPOSITORY ${url})
 endif()
