@@ -1,0 +1,25 @@
+From b30b8fc0a863623bdeb625f1d70d3d4a6fc445f2 Mon Sep 17 00:00:00 2001
+From: Loic Cadour <loic.cadour@inria.fr>
+Date: Fri, 30 Oct 2015 17:33:50 +0100
+Subject: [PATCH] GLintptr pb on Linux
+
+---
+ Rendering/vtkXOpenGLRenderWindow.cxx | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Rendering/vtkXOpenGLRenderWindow.cxx b/Rendering/vtkXOpenGLRenderWindow.cxx
+index d415fae..d56d678 100644
+--- a/Rendering/vtkXOpenGLRenderWindow.cxx
++++ b/Rendering/vtkXOpenGLRenderWindow.cxx
+@@ -27,7 +27,7 @@
+ 
+ // define GLX_GLXEXT_LEGACY to prevent glx.h to include glxext.h provided by
+ // the system
+-//#define GLX_GLXEXT_LEGACY
++#define GLX_GLXEXT_LEGACY
+ #include "GL/glx.h"
+ 
+ #include "vtkgl.h"
+-- 
+1.8.5.3
+
