@@ -30,7 +30,7 @@ execute_process(COMMAND arch
                 OUTPUT_STRIP_TRAILING_WHITESPACE)
   
 set(CPACK_PACKAGE_FILE_NAME 
-    "${CPACK_PACKAGE_NAME}-${CPACK_PACKAGE_VERSION}-${DISTRIBUTOR_ID}_${RELEASE}-${ARCH}")
+    "${CPACK_PACKAGE_NAME}-${CPACK_PACKAGE_VERSION}")
  
 # Set the right package generator
 

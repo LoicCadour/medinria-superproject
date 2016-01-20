@@ -2,7 +2,7 @@
 Type=Application
 Name=MUSIC
 GenericName=Medical Imaging Platform
-Comment=Process and Visualize Medical Images
+Comment=Process and Visualize Cardiac Images
 Icon=@CPACK_PACKAGING_INSTALL_PREFIX@/share/icons/music_logo.png
 Exec=MUSIC %U
 Terminal=false
