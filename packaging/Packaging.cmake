@@ -19,7 +19,7 @@ mark_as_advanced(CPACK_PACKAGE_NAME)
 set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "${CPACK_PACKAGE_NAME} - medical image visualisation and processing tool")
 
 set(CPACK_PACKAGE_DESCRIPTION 
-    "${CPACK_PACKAGE_NAME} is a medical image visualization and processing tool developed at Inria by the teams Asclepios, Athena, Parietal and Visages.")
+    "${CPACK_PACKAGE_NAME} is a cardiac image visualization and processing tool developed in collaboration between INRIA and the IHU LIRYC.")
 
 set(CPACK_PACKAGE_VENDOR  https://team.inria.fr/asclepios/software/music/)
 set(CPACK_PACKAGE_CONTACT "MUSIC Team <music@inria.fr>")
