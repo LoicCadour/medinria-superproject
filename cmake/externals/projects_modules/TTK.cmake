@@ -48,13 +48,11 @@ EP_SetDirectories(${ep}
 
 
 ## #############################################################################
-## Define repository where get the sources
+## Set up versioning control.
 ## #############################################################################
 
-set(url ${GITHUB_PREFIX}Inria-Asclepios/TTK-Public.git)
-if (NOT DEFINED ${ep}_SOURCE_DIR)
-  set(location GIT_REPOSITORY ${url})
-endif()
+set(git_url ${GITHUB_PREFIX}Inria-Asclepios/TTK-Public.git)
+set(git_tag music)
 
 
 ## #############################################################################
@@ -86,13 +84,15 @@ set(cmake_args
 
 ExternalProject_Add(${ep}
   ${ep_dirs}
-  ${location}
-  UPDATE_COMMAND ""
+  GIT_REPOSITORY ${git_url}
+  GIT_TAG ${git_tag}
   CMAKE_GENERATOR ${gen}
   CMAKE_ARGS ${cmake_args}
   DEPENDS ${${ep}_dependencies}
-  INSTALL_COMMAND ""    
+  INSTALL_COMMAND ""
+  BUILD_ALWAYS 1   
   )
+
   
   
 ## #############################################################################

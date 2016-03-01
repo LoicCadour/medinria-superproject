@@ -11,7 +11,7 @@
 #
 ################################################################################
 
-cmake_minimum_required(VERSION 2.8.10)
+cmake_minimum_required(VERSION 3.0)
 
 ## #############################################################################
 ## Set CMAKE_BUILD_TYPE to Release by default.
@@ -142,9 +142,6 @@ set(global_targets
 # This adds targets that will be run in each external-projects
 set_property(DIRECTORY PROPERTY EP_STEP_TARGETS ${global_targets})
 
-foreach (target ${global_targets})
-  add_custom_target(${target})
-endforeach()
 
 ## #############################################################################
 ## Check build environment

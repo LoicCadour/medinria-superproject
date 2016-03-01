@@ -46,13 +46,11 @@ EP_SetDirectories(${ep}
 
 
 ## #############################################################################
-## Define repository where get the sources
+## Set up versioning control.
 ## #############################################################################
 
-set(tag "v4.8.0")
-if (NOT DEFINED ${ep}_SOURCE_DIR)
-    set(location GIT_REPOSITORY "${GITHUB_PREFIX}InsightSoftwareConsortium/ITK.git" GIT_TAG ${tag})
-endif()
+set(git_url ${GITHUB_PREFIX}InsightSoftwareConsortium/ITK.git)
+set(git_tag v4.9.0)
 
 
 ## #############################################################################
@@ -69,6 +67,7 @@ set(cmake_args
   ${ep_common_cache_args}
   -DCMAKE_C_FLAGS:STRING=${${ep}_c_flags}
   -DCMAKE_CXX_FLAGS:STRING=${${ep}_cxx_flags}
+  -DCMAKE_MACOSX_RPATH:BOOL=OFF
   -DCMAKE_SHARED_LINKER_FLAGS:STRING=${${ep}_shared_linker_flags}  
   -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR>
   -DBUILD_SHARED_LIBS:BOOL=${BUILD_SHARED_LIBS_${ep}}
@@ -90,12 +89,14 @@ ep_GeneratePatchCommand(ITK ITK_PATCH_COMMAND ITK_Mac_Rpath.patch)
 
 ExternalProject_Add(${ep}
   ${ep_dirs}
-  ${location}
-  UPDATE_COMMAND ""
+  GIT_REPOSITORY ${git_url}
+  GIT_TAG ${git_tag}
   ${ITK_PATCH_COMMAND}
   CMAKE_GENERATOR ${gen}
   CMAKE_ARGS ${cmake_args}
+  DEPENDS ${${ep}_dependencies}
   INSTALL_COMMAND ""
+  BUILD_ALWAYS 1
   )
 
 
