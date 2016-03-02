@@ -49,8 +49,10 @@ EP_SetDirectories(${ep}
 ## Set up versioning control.
 ## #############################################################################
 
-set(git_url ${GITHUB_PREFIX}InsightSoftwareConsortium/ITK.git)
-set(git_tag v4.9.0)
+set(tag "v4.9.0")
+if (NOT DEFINED ${ep}_SOURCE_DIR)
+    set(location GIT_REPOSITORY "${GITHUB_PREFIX}InsightSoftwareConsortium/ITK.git" GIT_TAG ${tag})
+endif()
 
 
 ## #############################################################################
@@ -89,8 +91,8 @@ ep_GeneratePatchCommand(ITK ITK_PATCH_COMMAND ITK_Mac_Rpath.patch)
 
 ExternalProject_Add(${ep}
   ${ep_dirs}
-  GIT_REPOSITORY ${git_url}
-  GIT_TAG ${git_tag}
+  ${location}
+  UPDATE_COMMAND ""
   ${ITK_PATCH_COMMAND}
   CMAKE_GENERATOR ${gen}
   CMAKE_ARGS ${cmake_args}
@@ -104,7 +106,7 @@ ExternalProject_Add(${ep}
 ## Set variable to provide infos about the project
 ## #############################################################################
 
-ExternalProject_Get_Property(ITK binary_dir)
+ExternalProject_Get_Property(${ep} binary_dir)
 set(${ep}_DIR ${binary_dir} PARENT_SCOPE)
 
 
