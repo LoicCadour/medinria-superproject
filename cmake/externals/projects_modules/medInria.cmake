@@ -61,10 +61,8 @@ EP_SetDirectories(${ep}
 ## Define repository where get the sources
 ## #############################################################################
 
-set(url ${GITHUB_PREFIX}LoicCadour/medInria-public.git)
-if (NOT DEFINED ${ep}_SOURCE_DIR)
-  set(location GIT_REPOSITORY ${url})
-endif()
+set(git_url ${GITHUB_PREFIX}LoicCadour/medInria-public.git)
+set(git_tag master)
 
 
 ## #############################################################################
@@ -107,7 +105,8 @@ set(cmake_args
 
 ExternalProject_Add(${ep}
   ${ep_dirs}
-  ${location}
+  GIT_REPOSITORY ${git_url}
+  GIT_TAG ${git_tag}
   UPDATE_COMMAND ""
   CMAKE_GENERATOR ${gen}
   CMAKE_ARGS ${cmake_args}
