@@ -7,7 +7,7 @@ all the necessary dependencies as well as medInria.
 
 To compile everything, you just need these steps:
 
-1. Install CMake (version 2.8.9 required)
+1. Install CMake (version 3.0 required)
 2. Run CMake, configure and generate.
 3. Compile
 4. Go for a coffee, it will take a while. 
