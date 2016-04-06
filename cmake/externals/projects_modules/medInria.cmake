@@ -61,7 +61,7 @@ EP_SetDirectories(${ep}
 ## Define repository where get the sources
 ## #############################################################################
 
-set(git_url ${GITHUB_PREFIX}LoicCadour/medInria-public.git)
+set(git_url ${GITHUB_PREFIX}Inria-Asclepios/medInria-public.git)
 set(git_tag master)
 
 
