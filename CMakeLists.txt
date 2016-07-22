@@ -29,6 +29,12 @@ endif()
 
 project(medInria-superProject)
 
+if(NOT DEFINED ${medInria-superProject_VERSION})
+    set(medInria-superProject_VERSION 1.1.0)
+endif()
+
+project(medInria-superProject VERSION ${medInria-superProject_VERSION})
+
 ## #############################################################################
 ## Add packages
 ## #############################################################################
@@ -96,31 +102,6 @@ set(CMAKE_MODULE_PATH
 ## #############################################################################
 ## Add variables
 ## #############################################################################
-
-set(${PROJECT_NAME}_VERSION_MAJOR 1 CACHE STRING 
-  "medInria major version number."
-  )
-mark_as_advanced(${PROJECT_NAME}_VERSION_MAJOR)
-
-set(${PROJECT_NAME}_VERSION_MINOR 0 CACHE STRING 
-  "medInria minor version number."
-  )
-mark_as_advanced(${PROJECT_NAME}_VERSION_MINOR)
-
-set(${PROJECT_NAME}_VERSION_PATCH 0 CACHE STRING 
-  "medInria build version number."
-  )
-mark_as_advanced(${PROJECT_NAME}_VERSION_PATCH)
-
-set(${PROJECT_NAME}_VERSION_TWEAK git CACHE STRING 
-  "medInria development marker."
-  )
-mark_as_advanced(${PROJECT_NAME}_VERSION_TWEAK)
-
-set(${PROJECT_NAME}_VERSION
-	${${PROJECT_NAME}_VERSION_MAJOR}.${${PROJECT_NAME}_VERSION_MINOR}.${${PROJECT_NAME}_VERSION_PATCH}
-)
-
 
 option(USE_GITHUB_SSH 
   "Use by default Git SSH addresses, requires public key set on github" OFF
