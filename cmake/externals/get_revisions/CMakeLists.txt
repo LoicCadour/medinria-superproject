@@ -23,7 +23,7 @@ cmake_minimum_required(VERSION 2.8)
 
 set(REVISIONS_HEADER ${CMAKE_BINARY_DIR}/medRevisions.h)
 file(WRITE ${REVISIONS_HEADER}
-  "#pragma once\n#define REVISIONS \"<br/><br/>medInria was build using : <br/><br/>"
+  "#pragma once\n#define REVISIONS \"<br/><br/>The application has been built using: <br/><br/>"
   )
 
 ## #############################################################################
