@@ -1,0 +1,37 @@
+From b9658e5decdbe36b11a8947fb9ba802b92bac8b4 Mon Sep 17 00:00:00 2001
+From: Sean McBride <sean@rogue-research.com>
+Date: Fri, 4 Oct 2013 14:05:34 -0400
+Subject: [PATCH] Conditionalize insane "#define inline" in libtiff
+
+This was causing mysterious linker errors if building
+against the OS X 10.9 SDK.  Limit it to MS compiler,
+which does not support 'inline' in C.
+
+Change-Id: Ib1916810d00609b5f8f369f61da83cf739df43c5
+---
+ Utilities/vtktiff/tif_config.h.in | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
+
+diff --git a/Utilities/vtktiff/tif_config.h.in b/Utilities/vtktiff/tif_config.h.in
+index 55ff16a..cc97062 100644
+--- a/Utilities/vtktiff/tif_config.h.in
++++ b/Utilities/vtktiff/tif_config.h.in
+@@ -238,11 +238,12 @@ the sizes can be different.*/
+ /* Define to empty if `const' does not conform to ANSI C. */
+ #cmakedefine const
+ 
+-/* Define to `__inline__' or `__inline' if that's what the C compiler
+-   calls it, or to nothing if 'inline' is not supported under any name.  */
++/* MSVC does not support C99 inline, so just make the inline keyword
++   disappear for C.  */
+ #ifndef __cplusplus
+-#define inline
+-//#cmakedefine inline
++#  ifdef _MSC_VER
++#    define inline
++#  endif
+ #endif
+ 
+ /* Define to `long' if <sys/types.h> does not define. */
+-- 
+1.9.1

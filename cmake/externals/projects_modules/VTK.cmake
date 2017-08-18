@@ -49,9 +49,9 @@ EP_SetDirectories(${ep}
 ## #############################################################################
 
 # Set GIT_TAG to latest commit of origin/release-5.10 known to work
-set(tag ed00ef1c94964bfdd4e0a4097311154758bbe083)
+set(tag tags/v5.10.1)
 if (NOT DEFINED ${ep}_SOURCE_DIR)
-    set(location GIT_REPOSITORY "git://vtk.org/VTK.git" GIT_TAG ${tag})
+    set(location GIT_REPOSITORY "git@github.com:Kitware/VTK.git" GIT_TAG ${tag})
 endif()
 
 
@@ -83,7 +83,7 @@ set(cmake_args
 ## Check if patch has to be applied
 ## #############################################################################
 
-ep_GeneratePatchCommand(VTK VTK_PATCH_COMMAND VTK_WindowLevel.patch VTK_GLintptrPb.patch)
+ep_GeneratePatchCommand(VTK VTK_PATCH_COMMAND VTK_WindowLevel.patch VTK_GLintptrPb.patch VTK_Mac_inline.patch)
 
 ## #############################################################################
 ## Add external-project
