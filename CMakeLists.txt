@@ -30,7 +30,7 @@ endif()
 project(medInria-superProject)
 
 if(NOT DEFINED ${medInria-superProject_VERSION})
-    set(medInria-superProject_VERSION 1.1.2)
+    set(medInria-superProject_VERSION 2.0.0)
 endif()
 
 project(medInria-superProject VERSION ${medInria-superProject_VERSION})
