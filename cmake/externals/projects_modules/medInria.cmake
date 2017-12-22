@@ -62,7 +62,7 @@ EP_SetDirectories(${ep}
 ## #############################################################################
 
 set(git_url ${GITHUB_PREFIX}LoicCadour/medInria-public.git)
-set(git_tag musicViewer)
+set(git_tag test)
 
 
 ## #############################################################################
