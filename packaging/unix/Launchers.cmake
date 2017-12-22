@@ -28,14 +28,14 @@ set(LOCATE "")
 set(MEDINRIA_DIR ${CMAKE_BINARY_DIR})
 
 if (APPLE)
-  set(MEDINRIA_BIN ${binary_dir}/bin/inHEART_Viewer.app/Contents/MacOS/inHEART_Viewer)
+  set(MEDINRIA_BIN ${binary_dir}/bin/Viewer.app/Contents/MacOS/Viewer)
 else()
-  set(MEDINRIA_BIN ${binary_dir}/bin/MUSIC)
+  set(MEDINRIA_BIN ${binary_dir}/bin/Viewer)
 endif()
 
 set(MEDINRIA_PLUGINS_DIRS "${binary_dir}/plugins:${DEV_PLUGINS_DIRS}")
 
-configure_file(${CURRENT_SRC_DIR}/MUSIC.sh.in MUSIC.sh @ONLY)
+configure_file(${CURRENT_SRC_DIR}/Viewer.sh.in Viewer.sh @ONLY)
 
 #   For end users.
 
@@ -43,13 +43,13 @@ file(READ "${CURRENT_SRC_DIR}/locate_bin.sh" LOCATE)
 set(MEDINRIA_DIR "$(locate)")
 
 if (APPLE)
-  set(MEDINRIA_BIN "\${MEDINRIA_DIR}/bin/medInria.app/Contents/MacOS/medInria")
+  set(MEDINRIA_BIN "\${MEDINRIA_DIR}/bin/Viewer.app/Contents/MacOS/Viewer")
 else()
-  set(MEDINRIA_BIN "\${MEDINRIA_DIR}/bin/MUSIC")
+  set(MEDINRIA_BIN "\${MEDINRIA_DIR}/bin/Viewer")
 endif()
 
 set(MEDINRIA_PLUGINS_DIRS "\${MEDINRIA_DIR}/plugins:\${MEDINRIA_USER_PLUGINS_DIRS}")
 
-configure_file(${CURRENT_SRC_DIR}/MUSIC.sh.in ${CURRENT_BIN_DIR}/MUSIC_launcher.sh @ONLY)
+configure_file(${CURRENT_SRC_DIR}/Viewer.sh.in ${CURRENT_BIN_DIR}/MUSIC_launcher.sh @ONLY)
 install(PROGRAMS ${CURRENT_BIN_DIR}/MUSIC_launcher.sh
         DESTINATION bin)

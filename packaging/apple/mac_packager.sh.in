@@ -18,11 +18,11 @@ cd @medInria_DIR@/bin
 
 \rm -fr TmpInstall
 mkdir TmpInstall
-cp -r inHEART_Viewer.app TmpInstall
+cp -r Viewer.app TmpInstall
 
 cd TmpInstall
 
-@QT_BINARY_DIR@/macdeployqt inHEART_Viewer.app
+@QT_BINARY_DIR@/macdeployqt Viewer.app
 
 #Run sub-packagers
 injectDirs=''
@@ -31,9 +31,9 @@ for i in $*; do
 	injectDirs="$injectDirs -inject-dir=$i/plugins"
 done
 
-@dtk_DIR@/bin/dtkDeploy inHEART_Viewer.app $injectDirs &>/dev/null
+@dtk_DIR@/bin/dtkDeploy Viewer.app $injectDirs &>/dev/null
 
-cd inHEART_Viewer.app/Contents
+cd Viewer.app/Contents
 
 mkdir -p PlugIns/sqldrivers PlugIns/imageformats
 
@@ -62,8 +62,8 @@ cd @PROJECT_BINARY_DIR@
 gunzip -f MedinriaPackage.sparseimage.gz
 
 devName=`hdiutil attach -readwrite -noverify -noautoopen MedinriaPackage.sparseimage | egrep '^/dev/' | sed 1q | awk '{print $1}'`
-diskutil rename "medInria base" "inHEART_Viewer"
-\cp -rf @medInria_DIR@/bin/TmpInstall/inHEART_Viewer.app /Volumes/"inHEART_Viewer"/
+diskutil rename "medInria base" "inHEART Viewer"
+\cp -rf @medInria_DIR@/bin/TmpInstall/Viewer.app /Volumes/"inHEART Viewer"/
 
 sync
 hdiutil detach $devName
